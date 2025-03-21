@@ -26,5 +26,8 @@ jobs:
         with:
           credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
+      - name: Set GCP Project
+        run: gcloud config set project airy-coil-454421-v5
+
       - name: Build and Push
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/airy-coil-454421-v5/notely-ar-repo/guaty/notely:latest .
